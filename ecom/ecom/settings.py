@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +53,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ecom.urls'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "E-Commerce Admin",
+    "site_header": "E-Commerce Admin",
+    "site_brand": "E-Commerce Admin",
+    "welcome_sign": "Welcome to the E-Commerce Admin Panel",
+}
 
 TEMPLATES = [
     {
