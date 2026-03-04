@@ -12,4 +12,32 @@
     </div>
 </header>
 
+<br/>
+<div class="container">
+    <center>
+        {% if cart_products %}
+            {% for product in cart_products %}
+                
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">Price: ${{ product.price_or_sale }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        {% else %}
+            <h3>Your cart is empty.</h3>
+        {% endif %}
+    </center>
+</div>
+
 {% endblock %}
