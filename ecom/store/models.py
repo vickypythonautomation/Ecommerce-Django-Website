@@ -43,6 +43,11 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product', args=[self.pk])
     
+    def price_or_sale(self):
+        if self.is_sale:
+            return self.sale_price
+        return self.price
+    
 class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)

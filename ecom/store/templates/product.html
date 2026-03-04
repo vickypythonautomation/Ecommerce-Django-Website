@@ -44,6 +44,7 @@
                                         &nbsp;
                                         <span class="text-success">${{ product.sale_price }}</span>
                                     </p>
+                                    <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add to Cart</button>
                                 </center>
                             </div>
                         </div>
@@ -62,7 +63,10 @@
                             <div class="card-body">
                                 <center>
                                     <p class="card-text justify-content-center">{{ product.description }}</p>
-                                    <span class="text-primary">${{ product.price }}</span>
+                                    <p class="card-text">
+                                        <span class="text-primary">${{ product.price }}</span>
+                                    </p>
+                                    <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add to Cart</button>
                                 </center>
                             </div>
                         </div>
@@ -75,5 +79,29 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(document).on('click', '#add-cart', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'cart_add' %}",
+            data: {
+                'product_id': $('#add-cart').val(),
+                'csrfmiddlewaretoken': '{{ csrf_token }}',
+                'action': 'post'
+            },
+
+            success: function(json) {
+                console.log(json);
+            },
+
+            error: function(xhr, errmsg, err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+            }
+        });
+    });
+</script>
 
 {% endblock %}

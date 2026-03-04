@@ -14,14 +14,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 (InteractiveConsole)
 
 >>> from django.contrib.sessions.models import Session
->>> session_k = Session.objects.get(pk='3z318fvx9vq8zck0asqw3l31ophicq69')
+>>> session_k = Session.objects.get(pk="m6v84karhkg9z6ktok8f0dvt1g2g3ja0")
 >>> session_k.get_decoded()
 {
+    'session_key': {
+        '16': {'price': '62.89'}, 
+        '17': {'price': '76.23'}
+    }, 
     '_auth_user_id': '1', 
     '_auth_user_backend': 'django.contrib.auth.backends.ModelBackend', 
-    '_auth_user_hash': 'e2e06845b48e9accbbcd7b9e91a7cf0b69fc8477c7ddb99088349d12dc9dd12a', 
-    'session_key': {}
+    '_auth_user_hash': 'e2e06845b48e9accbbcd7b9e91a7cf0b69fc8477c7ddb99088349d12dc9dd12a'
 }
 
->>> 
+>>>
 '''
