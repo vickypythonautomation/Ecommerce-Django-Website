@@ -10,6 +10,13 @@ def cart_summary(request):
     quantities = cart.get_quants()
     totals = cart.cart_total()
 
+    # Pre-calculate subtotal for each product to simplify template logic
+    for product in cart_products:
+        # Get quantity for the specific product from the quantities dictionary
+        qty = quantities.get(str(product.id), {}).get('qty', 0)
+        product.qty = qty
+        product.subtotal = product.price_or_sale() * qty
+
     return render(request, 'cart_summary.html', {
         'cart_products': cart_products, 
         'quantities': quantities,

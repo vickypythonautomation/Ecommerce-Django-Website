@@ -34,8 +34,8 @@
                         </h4>
 
                         <p class="card-text">
-                            <strong>Price: </strong>
-                            ${{ product.price_or_sale }}
+                            <strong>Sub Total: </strong>
+                            ${{ product.price_or_sale }} x {{ product.qty }} = <strong style="color: green;">${{ product.subtotal }}</strong>
                         </p>
 
                         <div class="row justify-content-center align-items-center">
@@ -45,12 +45,7 @@
                             <div class="col-auto">
                                 <select class="form-select form-select-sm" id="select{{ product.id }}"
                                     style="width: auto;">
-                                    {% for key, value in quantities.items %}
-                                    {% if key == product.id|slugify %}
-                                    <option selected value="{{ value.qty }}">{{ value.qty }}</option>
-                                    {% endif %}
-                                    {% endfor %}
-
+                                    <option selected value="{{ product.qty }}">{{ product.qty }}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -75,7 +70,8 @@
         <!-- Total -->
         <div class="card mb-3" style="max-width: 80%;">
             <div class="card-body">
-                <h4 class="card-title">Total: &nbsp; <span id="cart-total" style="color: green;">${{ totals }}</span></h4>
+                <h4 class="card-title">Total: &nbsp; <span id="cart-total" style="color: green;">${{ totals }}</span>
+                </h4>
             </div>
         </div>
         {% else %}
