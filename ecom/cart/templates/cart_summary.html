@@ -42,8 +42,8 @@
                                     <div class="col-auto">
                                         <strong>Quantity:</strong>
                                     </div>
-                                    <div class="col-md-3">
-                                        <select class="form-select form-select-sm" id="select{{ product.id }}">
+                                    <div class="col-auto">
+                                        <select class="form-select form-select-sm" id="select{{ product.id }}" style="width: auto;">
                                             {% for key, value in quantities.items %}
                                                 {% if key == product.id|slugify %}
                                                     <option selected value="{{ value.qty }}">{{ value.qty }}</option>
