@@ -61,13 +61,7 @@
                                 <input type="text" name="last_name" value="{{ user.last_name }}" class="form-control"
                                     id="id_last_name">
                             </div>
-                            <div class="mb-3">
-                                <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#passwordCollapse" aria-expanded="false"
-                                    aria-controls="passwordCollapse">
-                                    Change Password (Optional)
-                                </button>
-                            </div>
+
                             <div class="collapse" id="passwordCollapse">
                                 <div class="mb-3">
                                     <label for="id_password" class="form-label">New Password</label>
@@ -80,7 +74,18 @@
                                         id="id_password_confirm">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                            <div class="row g-2 mt-3">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-secondary btn-sm w-100 h-100" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#passwordCollapse"
+                                        aria-expanded="false" aria-controls="passwordCollapse">
+                                        Change Password
+                                    </button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
