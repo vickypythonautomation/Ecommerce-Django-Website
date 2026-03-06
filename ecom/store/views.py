@@ -100,11 +100,8 @@ def update_user(request):
         if new_email:
             user.email = new_email
 
-        if new_first_name:
-            user.first_name = new_first_name
-
-        if new_last_name:
-            user.last_name = new_last_name
+        user.first_name = new_first_name
+        user.last_name = new_last_name
 
         if new_password:
             user.set_password(new_password)
