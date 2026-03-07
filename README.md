@@ -1,5 +1,5 @@
-# Ecommerce Django Website
+# 24x7 Stream Dashboard
 
-[![shop](https://github.com/user-attachments/assets/23e2c112-cc87-45aa-8ef1-f458323aab81)](https://shop.imvickykumar999.dpdns.org/)
-
-[![youtube](https://github.com/user-attachments/assets/fecc89b3-3e51-4ef3-b1c1-a8d855125f92)](https://www.youtube.com/playlist?list=PLCC34OHNcOtpRfBYk-8y0GMO4i1p1zn50)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a46e7ac5-fc19-41b5-8953-2a0d82945850" />
+<img width="1517" height="1023" alt="image" src="https://github.com/user-attachments/assets/ee74e995-ab8f-4f1c-9ea7-35fc430cb343" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/fdf1de38-ac25-4782-8d78-eb27a8c1dd2a" />
