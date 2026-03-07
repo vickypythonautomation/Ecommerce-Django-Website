@@ -142,20 +142,31 @@
                 <!-- useful links -->
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-12 col-lg-6 text-center">
-                            <h5 class="text-white mb-3">Useful Pages</h5>
-                            <ul class="list-unstyled">
-                                <li><a class="text-white text-decoration-none" href="{% url 'policy' %}">Privacy
-                                        Policy</a></li>
-                                <li><a class="text-white text-decoration-none" href="{% url 'about' %}">About Us</a>
-                                </li>
-                            </ul>
+                        <div class="col-lg-9 col-xl-7 px-4">
+                            <h5 class="text-white mb-4 text-center">Install 24x7 Stream App</h5>
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-4">
+                                <ul class="list-unstyled mb-0 text-center text-md-start">
+                                    <li><a class="text-white text-decoration-none" href="{% url 'policy' %}">Privacy
+                                            Policy</a></li>
+                                    <li><a class="text-white text-decoration-none" href="{% url 'about' %}">About Us</a>
+                                    </li>
+                                </ul>
+                                <div>
+                                    <a href="https://play.google.com/store/apps/details?id=com.imvickykumar999.x24live"
+                                        target="_blank" class="play-store-link">
+                                        <img src="{% static 'assets/Google_Play_714a8811e2.svg' %}"
+                                            alt="Download on Google Play" class="play-store-badge">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="container">
-                    <p class="m-0 text-center text-white">Copyright &copy; 24x7 Stream <span id="year"></span></p>
+                <div class="container mt-5">
+                    <p class="m-0 text-center text-white border-top pt-4">Copyright &copy; 24x7 Stream <span
+                            id="year"></span></p>
                 </div>
             </footer>
 
@@ -191,6 +202,11 @@
                     }
                 });
             </script>
+            <!-- Floating External Link -->
+            <a href="https://24x7live.imvickykumar999.dpdns.org" target="_blank" class="floating-favicon"
+                title="Go to 24x7 Stream">
+                <img src="{% static 'assets/favicon.ico' %}" alt="24x7 Stream">
+            </a>
         </div> <!-- End wrapper -->
 </body>
 
