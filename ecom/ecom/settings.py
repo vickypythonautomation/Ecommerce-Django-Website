@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '192.168.0.101',
+    'vickyme6ywivszfs6c2oekjxgatrl7xykwsc355llydysuj7eexokfyd.onion',
 ]
 
 # Application definition
