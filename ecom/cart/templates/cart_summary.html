@@ -65,10 +65,34 @@
 
         <!-- Total -->
         <br />
-        <div class="cart-total-card card mb-3" style="max-width: 80%;">
+        <div class="cart-total-card card mb-3" style="max-width: 80%; cursor: pointer;" id="total-clickable">
             <div class="card-body">
-                <h4 class="card-title">Total: &nbsp; <span id="cart-total">₹{{ totals }}</span>
+                <h4 class="card-title">Pay Now: &nbsp; <span id="cart-total">₹{{ totals }} + 18% GST</span>
+                    <small class="text-muted" style="font-size: 0.6em; display: block;">(Click to Pay via UPI
+                        QR)</small>
                 </h4>
+            </div>
+        </div>
+
+        <!-- UPI QR Modal -->
+        <div class="modal fade" id="upiModal" tabindex="-1" aria-labelledby="upiModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="upiModalLabel">UPI Payment QR Code</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-1">Scan the QR code below to pay <strong id="modal-total" class="fs-4"></strong>
+                        </p>
+                        <p class="text-muted small mb-3">(Includes 18% GST)</p>
+                        <div id="qrcode-container" class="mb-3">
+                            <img id="upi-qr-img" src="" alt="UPI QR Code" class="img-fluid"
+                                style="border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
+                        </div>
+                        <p class="text-muted small">Merchant: Vicky Kumar</p>
+                    </div>
+                </div>
             </div>
         </div>
         {% else %}
@@ -132,6 +156,29 @@
                 console.log(xhr.status + ": " + xhr.responseText);
             }
         });
+    });
+
+    // UPI QR Generation (+ 18% GST)
+    $('#total-clickable').on('click', function () {
+        var rawTotal = $('#cart-total').text().replace('₹', '').replace(/,/g, '').trim();
+        var baseTotal = parseFloat(rawTotal);
+
+        if (isNaN(baseTotal) || baseTotal <= 0) {
+            alert("Cart is empty or total is invalid.");
+            return;
+        }
+
+        // Add 18% GST
+        var totalWithGst = baseTotal * 1.18;
+
+        var upiUrl = "upi://pay?pa=imvickykumar999-1@okicici&pn=Vicky%20Kumar&am=" + totalWithGst.toFixed(2) + "&cu=INR&aid=uGICAgID14urrRw";
+        var qrImageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + encodeURIComponent(upiUrl);
+
+        $('#upi-qr-img').attr('src', qrImageUrl);
+        $('#modal-total').text('₹' + totalWithGst.toFixed(2));
+
+        var upiModal = new bootstrap.Modal(document.getElementById('upiModal'));
+        upiModal.show();
     });
 
 </script>
