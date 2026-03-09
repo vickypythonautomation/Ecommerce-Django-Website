@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -79,18 +80,24 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content text-center">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="upiModalLabel">UPI Payment QR Code</h5>
+                        <h5 class="modal-title d-flex align-items-center gap-2 justify-content-center w-100"
+                            id="upiModalLabel" style="margin-left: 20px;">
+                            <img src="{% static 'assets/UPI-Logo-vector.svg' %}" alt="UPI Logo" height="20">
+                            UPI Payment QR Code
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="mb-1">Scan the QR code below to pay <strong id="modal-total" class="fs-4"></strong>
+                        <p class="mb-1">Scan the QR code below to pay <strong id="modal-total" class="fs-4"
+                                style="color: green;"></strong>
                         </p>
                         <p class="text-muted small mb-3">(Includes 18% GST)</p>
                         <div id="qrcode-container" class="mb-3">
                             <img id="upi-qr-img" src="" alt="UPI QR Code" class="img-fluid"
                                 style="border: 1px solid #ddd; padding: 10px; border-radius: 8px;">
                         </div>
-                        <p class="text-muted small">Merchant: Vicky Kumar</p>
+                        <p class="text-muted small">Merchant: <a href="https://wa.me/918239957923" target="_blank"
+                                class="text-decoration-none">Vicky Kumar</a></p>
                     </div>
                 </div>
             </div>
