@@ -36,13 +36,12 @@
                         <hr />
 
                         <p class="card-text">
-                            <strong>Sub Total: </strong>
                             ₹{{ product.price_or_sale }} x {{ product.qty }} = <strong style="color: green;">
                                 ₹{{ product.subtotal }}</strong>
                         </p>
 
                         <div class="quantity-selector">
-                            <label for="select{{ product.id }}"><strong>Quantity:</strong></label>
+                            <label for="select{{ product.id }}"><strong>Quantity:</strong> &nbsp; </label>
                             <select class="form-select form-select-sm" id="select{{ product.id }}" style="width: auto;">
                                 <option selected value="{{ product.qty }}">{{ product.qty }}</option>
                                 <option value="1">1</option>
@@ -55,6 +54,7 @@
 
                         <button type="button" data-index="{{ product.id }}"
                             class="btn btn-sm btn-outline-secondary update-cart">Update</button>
+                        &nbsp;
                         <button type="button" data-index="{{ product.id }}"
                             class="btn btn-sm btn-outline-danger delete-product">Remove</button>
                     </div>
@@ -68,9 +68,9 @@
         <br />
         <div class="cart-total-card card mb-3" style="max-width: 80%; cursor: pointer;" id="total-clickable">
             <div class="card-body">
-                <h4 class="card-title">Pay Now: &nbsp; <span id="cart-total">₹{{ totals }} + 18% GST</span>
-                    <small class="text-muted" style="font-size: 0.6em; display: block;">(Click to Pay via UPI
-                        QR)</small>
+                <h4 class="card-title"><span id="cart-total">₹{{ totals }} + 18% GST</span>
+                    <small class="text-muted" style="font-size: 0.6em; display: block;">
+                        (Click to Pay via UPI QR)</small>
                 </h4>
             </div>
         </div>
@@ -83,13 +83,14 @@
                         <h5 class="modal-title d-flex align-items-center gap-2 justify-content-center w-100"
                             id="upiModalLabel" style="margin-left: 20px;">
                             <img src="{% static 'assets/UPI-Logo-vector.svg' %}" alt="UPI Logo" height="20">
-                            UPI Payment QR Code
+                            UPI Payment
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="mb-1">Scan the QR code below to pay <strong id="modal-total" class="fs-4"
-                                style="color: green;"></strong>
+                        <p class="mb-1">Scan the QR code below to pay <br />
+                            <strong id="modal-total" class="fs-4" style="color: green;">
+                            </strong>
                         </p>
                         <p class="text-muted small mb-3">(Includes 18% GST)</p>
                         <div id="qrcode-container" class="mb-3">
